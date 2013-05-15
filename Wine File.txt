@@ -1,0 +1,1213 @@
+
+R version 3.0.0 (2013-04-03) -- "Masked Marvel"
+Copyright (C) 2013 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin10.8.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[R.app GUI 1.60 (6476) x86_64-apple-darwin10.8.0]
+
+> head(iris, 10)
+   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1           5.1         3.5          1.4         0.2  setosa
+2           4.9         3.0          1.4         0.2  setosa
+3           4.7         3.2          1.3         0.2  setosa
+4           4.6         3.1          1.5         0.2  setosa
+5           5.0         3.6          1.4         0.2  setosa
+6           5.4         3.9          1.7         0.4  setosa
+7           4.6         3.4          1.4         0.3  setosa
+8           5.0         3.4          1.5         0.2  setosa
+9           4.4         2.9          1.4         0.2  setosa
+10          4.9         3.1          1.5         0.1  setosa
+> load("/Users/albertsatija/Dropbox/GA/R Intro Console (5.5.13)")
+> summary(iris)
+  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width          Species  
+ Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100   setosa    :50  
+ 1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300   versicolor:50  
+ Median :5.800   Median :3.000   Median :4.350   Median :1.300   virginica :50  
+ Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199                  
+ 3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800                  
+ Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500                  
+> help(qqnorm)
+starting httpd help server ... done
+> library(class)
+> library(ggplot2)
+> data <- iris
+> 
+> labels <- data$species
+> summary(lables)
+Error in summary(lables) : object 'lables' not found
+> head(lables)
+Error in head(lables) : object 'lables' not found
+> head(labels)
+NULL
+> labels <- data$Species
+> head(labels)
+[1] setosa setosa setosa setosa setosa setosa
+Levels: setosa versicolor virginica
+> set.seed(1234)
+> N <- nrow(data)
+> N
+[1] 150
+> train.pct <- .7
+> train.index <- sample(1:N, train.pct*N)
+> head(train.index)
+[1]  18  93  91  92 126 149
+> train.data <- data[train.index, ]
+> head(train.data)
+    Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+18           5.1         3.5          1.4         0.3     setosa
+93           5.8         2.6          4.0         1.2 versicolor
+91           5.5         2.6          4.4         1.2 versicolor
+92           6.1         3.0          4.6         1.4 versicolor
+126          7.2         3.2          6.0         1.8  virginica
+149          6.2         3.4          5.4         2.3  virginica
+> test.data <- data[-train.index, ]
+> head(test.data)
+   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1           5.1         3.5          1.4         0.2  setosa
+3           4.7         3.2          1.3         0.2  setosa
+9           4.4         2.9          1.4         0.2  setosa
+11          5.4         3.7          1.5         0.2  setosa
+12          4.8         3.4          1.6         0.2  setosa
+16          5.7         4.4          1.5         0.4  setosa
+> train.labels <- as.factor(as.matrix(labels)[train.index, ])
+> test.labels <- as.factor(as.matrix(labels)[-train.index, ])
+> err.rate <- data.frame()
+> max.k <- 100
+> for (k in 1:max.k) {}
+> 
+> for (k in 1:max.k){ }
+> for (k in 1:max.k) {
++ knn.ft <- knn (
++ train = train.data,
++ test = test.data,
++ cl = train.labels,
++ k = k
++ )
++ cat('\n', 'k = ', k, ', train.pct =', train.pct, '\n', sep="")
++ cat('\n', 'k = ', k, ', train.pct = ', train.pct, '\n', sep='')
++ print(table(test.labels, knn.fit))
++ 
++ this.err <- sum(test.labels != knn.fit) / length(test.labels)
++   err.rates <- rbind(err.rates, this.err)
++ }
+Error in knn(train = train.data, test = test.data, cl = train.labels,  : 
+  NA/NaN/Inf in foreign function call (arg 6)
+In addition: Warning messages:
+1: In knn(train = train.data, test = test.data, cl = train.labels,  :
+  NAs introduced by coercion
+2: In knn(train = train.data, test = test.data, cl = train.labels,  :
+  NAs introduced by coercion
+> err.rates <- data.frame()
+> > max.k <- 100
+Error: unexpected '>' in ">"
+> > for (k in 1:max.k) {}
+Error: unexpected '>' in ">"
+> > 
+Error: unexpected '>' in ">"
+> > for (k in 1:max.k){ }
+Error: unexpected '>' in ">"
+> > for (k in 1:max.k) {
+Error: unexpected '>' in ">"
+> + knn.ft <- knn (
++ + train = train.data,
+Error: unexpected '=' in:
+"+ knn.ft <- knn (
++ train ="
+> + test = test.data,
+Error: unexpected ',' in "+ test = test.data,"
+> + cl = train.labels,
+Error: unexpected ',' in "+ cl = train.labels,"
+> + k = k
+Error in +k = k : could not find function "+<-"
+> + )
+Error: unexpected ')' in "+ )"
+> + cat('\n', 'k = ', k, ', train.pct =', train.pct, '\n', sep="")
+
+k = 1, train.pct =0.7
+Error in +cat("\n", "k = ", k, ", train.pct =", train.pct, "\n", sep = "") : 
+  invalid argument to unary operator
+> + cat('\n', 'k = ', k, ', train.pct = ', train.pct, '\n', sep='')
+
+k = 1, train.pct = 0.7
+Error in +cat("\n", "k = ", k, ", train.pct = ", train.pct, "\n", sep = "") : 
+  invalid argument to unary operator
+> + print(table(test.labels, knn.fit))
+Error in table(test.labels, knn.fit) : object 'knn.fit' not found
+> + 
++ + this.err <- sum(test.labels != knn.fit) / length(test.labels)
+Error: object 'knn.fit' not found
+> +   err.rates <- rbind(err.rates, this.err)
+Error in rbind(err.rates, this.err) : object 'this.err' not found
+> + }
+Error: unexpected '}' in "+ }"
+> 
+> err.rates <- data.frame()
+> > max.k <- 100
+Error: unexpected '>' in ">"
+> > for (k in 1:max.k) {}
+Error: unexpected '>' in ">"
+> > 
+Error: unexpected '>' in ">"
+> > for (k in 1:max.k){ }
+Error: unexpected '>' in ">"
+> > for (k in 1:max.k) {
+Error: unexpected '>' in ">"
+> + knn.ft <- knn (
++ + train = train.data,
+Error: unexpected '=' in:
+"+ knn.ft <- knn (
++ train ="
+> + test = test.data,
+Error: unexpected ',' in "+ test = test.data,"
+> + cl = train.labels,
+Error: unexpected ',' in "+ cl = train.labels,"
+> + k = k
+Error in +k = k : could not find function "+<-"
+> + )
+Error: unexpected ')' in "+ )"
+> + cat('\n', 'k = ', k, ', train.pct =', train.pct, '\n', sep="")
+
+k = 1, train.pct =0.7
+Error in +cat("\n", "k = ", k, ", train.pct =", train.pct, "\n", sep = "") : 
+  invalid argument to unary operator
+> + cat('\n', 'k = ', k, ', train.pct = ', train.pct, '\n', sep='')
+
+k = 1, train.pct = 0.7
+Error in +cat("\n", "k = ", k, ", train.pct = ", train.pct, "\n", sep = "") : 
+  invalid argument to unary operator
+> + print(table(test.labels, knn.fit))
+Error in table(test.labels, knn.fit) : object 'knn.fit' not found
+> + 
++ + this.err <- sum(test.labels != knn.fit) / length(test.labels)
+Error: object 'knn.fit' not found
+> +   err.rates <- rbind(err.rates, this.err)
+Error in rbind(err.rates, this.err) : object 'this.err' not found
+> + }
+Error: unexpected '}' in "+ }"
+> 
+> help(as.factor)
+> help(frame)
+> help(frame())
+Error in help(frame()) : 
+  'topic' should be a name, length-one character vector or reserved word
+> help(knn)
+> data <- iris
+> labels <- data$Species
+> head(labels)
+[1] setosa setosa setosa setosa setosa setosa
+Levels: setosa versicolor virginica
+> N <- nrow(data)
+> train.pct <- .7
+> train.index <- sample(1:N, train.pct * N)
+> head(train.index)
+[1]  49  24  20  65   6 104
+> set.seed(1234)
+> head(train.index)
+[1]  49  24  20  65   6 104
+> train.index <- sample(1:N, train.pct * N)
+> head(train.index)
+[1]  18  93  91  92 126 149
+> train.data <- data[train.index, ]
+> test.data <- data[-train.index, ]
+> train.labels <- as.factor(as.matrix(labels)[train.index,])
+> test.labels <- as.factor(as.matrix(labels)[-train.index,])
+> head(train.labels)
+[1] setosa     versicolor versicolor versicolor virginica  virginica 
+Levels: setosa versicolor virginica
+> head(test.labels)
+[1] setosa setosa setosa setosa setosa setosa
+Levels: setosa versicolor virginica
+> err.rates <- data.frame()
+> max.k <- 100
+> for (k in 1:max.k) {
++ knn.fit <- knn (
++ train = train.data,
++ test = test.data,
++ cl  = train.labels,
++ k = k
++ )
++ 
++ cat('\n', 'k = ', k, ', train.pct = ', train.pct, '\n', sep='')
++ print(table(test.labels, knn.fit))
++ 
++ this.err <- sum(test.labels != knn.fit) / length(test.labels)
++ err.rates <- rbind(err.rates, this.err)
++ }
+Error in knn(train = train.data, test = test.data, cl = train.labels,  : 
+  NA/NaN/Inf in foreign function call (arg 6)
+In addition: Warning messages:
+1: In knn(train = train.data, test = test.data, cl = train.labels,  :
+  NAs introduced by coercion
+2: In knn(train = train.data, test = test.data, cl = train.labels,  :
+  NAs introduced by coercion
+> data <- iris                # create copy of iris dataframe
+> labels <- data$Species      # store labels
+> data$Species <- NULL        # remove labels from feature set (note: could
+> 
+> ## TRAIN/TEST SPLIT
+> # initialize random seed for consistency
+> # this allows our data to look the same every single time the experiment is run
+> set.seed(1234) 
+> 
+> # we want to use 70% of our data as a training set
+> N <- nrow(data)
+> train.pct <- .7
+> 
+> train.index <- sample(1:N, train.pct * N)       # random sample of records (training set)
+> train.data <- data[train.index, ]       # perform train/test split
+> test.data <- data[-train.index, ]       # note use of neg index...different than Python!
+> 
+> train.labels <- as.factor(as.matrix(labels)[train.index, ])     # extract training set labels
+> test.labels <- as.factor(as.matrix(labels)[-train.index, ])     # extract test set labels
+> 
+> ## Apply the Model
+> # initialize results object
+> err.rates <- data.frame()
+> 
+> max.k <- 100
+> 
+> # perform fit for various values of k
+> for (k in 1:max.k) {
++   knn.fit <- knn(
++     train = train.data,         # training set
++     test = test.data,           # test set
++     cl = train.labels,          # true labels
++     k = k                       # number of NN to poll
++   )
++ 
++   # print params and confusion matrix for each value k
++   cat('\n', 'k = ', k, ', train.pct = ', train.pct, '\n', sep='')
++   print(table(test.labels, knn.fit))
++ 
++   # store generalation error and append to total results
++   this.err <- sum(test.labels != knn.fit) / length(test.labels)
++   err.rates <- rbind(err.rates, this.err)
++ }
+
+k = 1, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         20         1
+  virginica       0          1        12
+
+k = 2, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         20         1
+  virginica       0          1        12
+
+k = 3, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         20         1
+  virginica       0          1        12
+
+k = 4, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         20         1
+  virginica       0          1        12
+
+k = 5, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         20         1
+  virginica       0          1        12
+
+k = 6, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         20         1
+  virginica       0          1        12
+
+k = 7, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         20         1
+  virginica       0          1        12
+
+k = 8, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         19         2
+  virginica       0          1        12
+
+k = 9, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         20         1
+  virginica       0          1        12
+
+k = 10, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         20         1
+  virginica       0          1        12
+
+k = 11, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         20         1
+  virginica       0          1        12
+
+k = 12, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         20         1
+  virginica       0          1        12
+
+k = 13, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         20         1
+  virginica       0          1        12
+
+k = 14, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         20         1
+  virginica       0          1        12
+
+k = 15, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         20         1
+  virginica       0          1        12
+
+k = 16, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         20         1
+  virginica       0          1        12
+
+k = 17, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         20         1
+  virginica       0          1        12
+
+k = 18, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         20         1
+  virginica       0          1        12
+
+k = 19, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         20         1
+  virginica       0          1        12
+
+k = 20, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         20         1
+  virginica       0          1        12
+
+k = 21, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         20         1
+  virginica       0          1        12
+
+k = 22, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         19         2
+  virginica       0          1        12
+
+k = 23, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         19         2
+  virginica       0          1        12
+
+k = 24, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         19         2
+  virginica       0          1        12
+
+k = 25, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         18         3
+  virginica       0          1        12
+
+k = 26, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         18         3
+  virginica       0          1        12
+
+k = 27, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         18         3
+  virginica       0          1        12
+
+k = 28, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         19         2
+  virginica       0          1        12
+
+k = 29, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         18         3
+  virginica       0          1        12
+
+k = 30, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         17         4
+  virginica       0          1        12
+
+k = 31, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         17         4
+  virginica       0          1        12
+
+k = 32, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         17         4
+  virginica       0          1        12
+
+k = 33, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         17         4
+  virginica       0          1        12
+
+k = 34, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         17         4
+  virginica       0          1        12
+
+k = 35, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         17         4
+  virginica       0          1        12
+
+k = 36, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         18         3
+  virginica       0          1        12
+
+k = 37, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         17         4
+  virginica       0          1        12
+
+k = 38, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         17         4
+  virginica       0          1        12
+
+k = 39, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      0         17         4
+  virginica       0          1        12
+
+k = 40, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      1         16         4
+  virginica       0          1        12
+
+k = 41, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      1         16         4
+  virginica       0          1        12
+
+k = 42, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      1         15         5
+  virginica       0          1        12
+
+k = 43, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      1         16         4
+  virginica       0          1        12
+
+k = 44, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      1         16         4
+  virginica       0          1        12
+
+k = 45, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      1         16         4
+  virginica       0          1        12
+
+k = 46, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      1         16         4
+  virginica       0          1        12
+
+k = 47, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      1         16         4
+  virginica       0          1        12
+
+k = 48, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      1         16         4
+  virginica       0          1        12
+
+k = 49, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      1         16         4
+  virginica       0          1        12
+
+k = 50, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      1         16         4
+  virginica       0          1        12
+
+k = 51, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      1         16         4
+  virginica       0          1        12
+
+k = 52, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      1         16         4
+  virginica       0          1        12
+
+k = 53, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      1         16         4
+  virginica       0          1        12
+
+k = 54, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      1         14         6
+  virginica       0          1        12
+
+k = 55, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      1         11         9
+  virginica       0          1        12
+
+k = 56, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      1         11         9
+  virginica       0          1        12
+
+k = 57, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      1         11         9
+  virginica       0          1        12
+
+k = 58, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      1          6        14
+  virginica       0          1        12
+
+k = 59, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      1          3        17
+  virginica       0          0        13
+
+k = 60, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      1          3        17
+  virginica       0          0        13
+
+k = 61, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      1          3        17
+  virginica       0          0        13
+
+k = 62, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      1          3        17
+  virginica       0          0        13
+
+k = 63, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      1          3        17
+  virginica       0          0        13
+
+k = 64, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      1          3        17
+  virginica       0          0        13
+
+k = 65, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      2          2        17
+  virginica       0          0        13
+
+k = 66, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      2          2        17
+  virginica       0          0        13
+
+k = 67, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      2          2        17
+  virginica       0          0        13
+
+k = 68, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      2          2        17
+  virginica       0          0        13
+
+k = 69, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      2          2        17
+  virginica       0          0        13
+
+k = 70, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      2          2        17
+  virginica       0          0        13
+
+k = 71, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      2          2        17
+  virginica       0          0        13
+
+k = 72, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      2          2        17
+  virginica       0          0        13
+
+k = 73, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      2          2        17
+  virginica       0          0        13
+
+k = 74, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      2          2        17
+  virginica       0          0        13
+
+k = 75, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      2          2        17
+  virginica       0          0        13
+
+k = 76, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      2          2        17
+  virginica       0          0        13
+
+k = 77, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      2          2        17
+  virginica       0          0        13
+
+k = 78, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      2          1        18
+  virginica       0          0        13
+
+k = 79, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      2          2        17
+  virginica       0          0        13
+
+k = 80, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      2          1        18
+  virginica       0          0        13
+
+k = 81, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      2          1        18
+  virginica       0          0        13
+
+k = 82, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      2          1        18
+  virginica       0          0        13
+
+k = 83, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      2          1        18
+  virginica       0          0        13
+
+k = 84, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      2          1        18
+  virginica       0          0        13
+
+k = 85, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      2          1        18
+  virginica       0          0        13
+
+k = 86, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      3          0        18
+  virginica       0          0        13
+
+k = 87, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      3          0        18
+  virginica       0          0        13
+
+k = 88, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      3          0        18
+  virginica       0          0        13
+
+k = 89, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      3          0        18
+  virginica       0          0        13
+
+k = 90, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      3          0        18
+  virginica       0          0        13
+
+k = 91, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      3          0        18
+  virginica       0          0        13
+
+k = 92, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      3          0        18
+  virginica       0          0        13
+
+k = 93, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      3          0        18
+  virginica       0          0        13
+
+k = 94, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      3          0        18
+  virginica       0          0        13
+
+k = 95, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      4          0        17
+  virginica       0          0        13
+
+k = 96, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      4          0        17
+  virginica       0          0        13
+
+k = 97, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      4          0        17
+  virginica       0          0        13
+
+k = 98, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      4          0        17
+  virginica       0          0        13
+
+k = 99, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      4          0        17
+  virginica       0          0        13
+
+k = 100, train.pct = 0.7
+            knn.fit
+test.labels  setosa versicolor virginica
+  setosa         11          0         0
+  versicolor      4          0        17
+  virginica       0          0        13
+> 
+> ## OUTPUT RESULTS
+> results <- data.frame(1:max.k, err.rates)   # create results summary data frame
+> names(results) <- c('k', 'err.rate')        # label columns of results df
+> 
+> # create title for results plot
+> title <- paste('knn results (train.pct = ', train.pct, ')', sep='')
+> 
+> # create results plot
+> results.plot <- ggplot(results, aes(x=k, y=err.rate)) + geom_point() + geom_line()
+> results.plot <- results.plot + ggtitle(title)
+> 
+> # draw results plot
+> results.plot
+> err.rates
+    X0.0444444444444444
+1            0.04444444
+2            0.04444444
+3            0.04444444
+4            0.04444444
+5            0.04444444
+6            0.04444444
+7            0.04444444
+8            0.06666667
+9            0.04444444
+10           0.04444444
+11           0.04444444
+12           0.04444444
+13           0.04444444
+14           0.04444444
+15           0.04444444
+16           0.04444444
+17           0.04444444
+18           0.04444444
+19           0.04444444
+20           0.04444444
+21           0.04444444
+22           0.06666667
+23           0.06666667
+24           0.06666667
+25           0.08888889
+26           0.08888889
+27           0.08888889
+28           0.06666667
+29           0.08888889
+30           0.11111111
+31           0.11111111
+32           0.11111111
+33           0.11111111
+34           0.11111111
+35           0.11111111
+36           0.08888889
+37           0.11111111
+38           0.11111111
+39           0.11111111
+40           0.13333333
+41           0.13333333
+42           0.15555556
+43           0.13333333
+44           0.13333333
+45           0.13333333
+46           0.13333333
+47           0.13333333
+48           0.13333333
+49           0.13333333
+50           0.13333333
+51           0.13333333
+52           0.13333333
+53           0.13333333
+54           0.17777778
+55           0.24444444
+56           0.24444444
+57           0.24444444
+58           0.35555556
+59           0.40000000
+60           0.40000000
+61           0.40000000
+62           0.40000000
+63           0.40000000
+64           0.40000000
+65           0.42222222
+66           0.42222222
+67           0.42222222
+68           0.42222222
+69           0.42222222
+70           0.42222222
+71           0.42222222
+72           0.42222222
+73           0.42222222
+74           0.42222222
+75           0.42222222
+76           0.42222222
+77           0.42222222
+78           0.44444444
+79           0.42222222
+80           0.44444444
+81           0.44444444
+82           0.44444444
+83           0.44444444
+84           0.44444444
+85           0.44444444
+86           0.46666667
+87           0.46666667
+88           0.46666667
+89           0.46666667
+90           0.46666667
+91           0.46666667
+92           0.46666667
+93           0.46666667
+94           0.46666667
+95           0.46666667
+96           0.46666667
+97           0.46666667
+98           0.46666667
+99           0.46666667
+100          0.46666667
+> read.table("https://github.com/podopie/data_science_class_examples/blob/master/wine.csv")
+Error in file(file, "rt") : cannot open the connection
+In addition: Warning message:
+In file(file, "rt") : unsupported URL scheme
+> wine.table <- read.table("https://github.com/podopie/data_science_class_examples/blob/master/wine.csv")
+Error in file(file, "rt") : cannot open the connection
+In addition: Warning message:
+In file(file, "rt") : unsupported URL scheme
+> 
+> wine.table <- read.table("https://github.com/podopie/data_science_class_examples/blob/master/wine.csv", sep="\t", h=T)
+Error in file(file, "rt") : cannot open the connection
+In addition: Warning message:
+In file(file, "rt") : unsupported URL scheme
+> wine.table <- read.table('https://github.com/podopie/data_science_class_examples/blob/master/wine.csv', sep="\t", h=T)
+Error in file(file, "rt") : cannot open the connection
+In addition: Warning message:
+In file(file, "rt") : unsupported URL scheme
+> wine.table <- read.table("https://github.com/podopie/data_science_class_examples/blob/master/wine.csv", sep="\t", h=T)
+Error in file(file, "rt") : cannot open the connection
+In addition: Warning message:
+In file(file, "rt") : unsupported URL scheme
+> wine.table <- read.table('Github.com/podopie/data_science_class_examples/blob/master/wine.csv', sep="\t", h=T)
+Error in file(file, "rt") : cannot open the connection
+In addition: Warning message:
+In file(file, "rt") :
+  cannot open file 'Github.com/podopie/data_science_class_examples/blob/master/wine.csv': No such file or directory
+> wine.table <- read.table('/Users/albertsatija/data_science_class_examples/wine.csv', sep = "\t", h=T)
+> summary(wine.table)
+          Wine.Alcohol.Malic.acid.Ash.Acl.Mg.Phenols.Flavanoids.Nonflavanoid.phenols.Proanth.Color.int.Hue.OD.Proline
+ 1,12.85,1.6,2.52,17.8,95,2.48,2.37,.26,1.46,3.93,1.09,3.63,1015:  1                                                 
+ 1,12.93,3.8,2.65,18.6,102,2.41,2.41,.25,1.98,4.5,1.03,3.52,770 :  1                                                 
+ 1,13.05,1.65,2.55,18,98,2.45,2.43,.29,1.44,4.25,1.12,2.51,1105 :  1                                                 
+ 1,13.05,1.73,2.04,12.4,92,2.72,3.27,.17,2.91,7.2,1.12,2.91,1150:  1                                                 
+ 1,13.05,1.77,2.1,17,107,3,3,.28,2.03,5.04,.88,3.35,885         :  1                                                 
+ 1,13.05,2.05,3.22,25,124,2.63,2.68,.47,1.92,3.58,1.13,3.2,830  :  1                                                 
+ (Other)                                                        :172                                                 
+> head(wine.table)
+  Wine.Alcohol.Malic.acid.Ash.Acl.Mg.Phenols.Flavanoids.Nonflavanoid.phenols.Proanth.Color.int.Hue.OD.Proline
+1                                            1,14.23,1.71,2.43,15.6,127,2.8,3.06,.28,2.29,5.64,1.04,3.92,1065
+2                                             1,13.2,1.78,2.14,11.2,100,2.65,2.76,.26,1.28,4.38,1.05,3.4,1050
+3                                             1,13.16,2.36,2.67,18.6,101,2.8,3.24,.3,2.81,5.68,1.03,3.17,1185
+4                                              1,14.37,1.95,2.5,16.8,113,3.85,3.49,.24,2.18,7.8,.86,3.45,1480
+5                                               1,13.24,2.59,2.87,21,118,2.8,2.69,.39,1.82,4.32,1.04,2.93,735
+6                                            1,14.2,1.76,2.45,15.2,112,3.27,3.39,.34,1.97,6.75,1.05,2.85,1450
+> labels <- wine.table$Wine
+> head(labels)
+[1] 1,14.23,1.71,2.43,15.6,127,2.8,3.06,.28,2.29,5.64,1.04,3.92,1065
+[2] 1,13.2,1.78,2.14,11.2,100,2.65,2.76,.26,1.28,4.38,1.05,3.4,1050 
+[3] 1,13.16,2.36,2.67,18.6,101,2.8,3.24,.3,2.81,5.68,1.03,3.17,1185 
+[4] 1,14.37,1.95,2.5,16.8,113,3.85,3.49,.24,2.18,7.8,.86,3.45,1480  
+[5] 1,13.24,2.59,2.87,21,118,2.8,2.69,.39,1.82,4.32,1.04,2.93,735   
+[6] 1,14.2,1.76,2.45,15.2,112,3.27,3.39,.34,1.97,6.75,1.05,2.85,1450
+178 Levels: 1,12.85,1.6,2.52,17.8,95,2.48,2.37,.26,1.46,3.93,1.09,3.63,1015 ...
+> set.seed(1234)
+> N <- nrow(wine.table)
+> N
+[1] 178
+> train.pct <- .7
+> train.index <- sample(1:N, train.pct * N)
+> head(train.index)
+[1]  21 111 108 110 150 177
+> wine.table$Wine <- NULL
+> set.seeed(1234)
+Error: could not find function "set.seeed"
+> set.seed(1234)
+> N <- nrow(data)
+> N
+[1] 150
+> N <- nrow(wine.table)
+> N
+[1] 178
+> train.pct <- .7
+> train.pct
+[1] 0.7
+> train.index <- sample(1:N, train.pct * N)
+> train.data <- data[train.index, ]
+> test.data <- data[-train.index, ]
+> train.labels <- as.factor(as.matrix(labels)[train.index, ])
+> test.labels <- as.factor(as.matrix(labels)[-train.index, ])
+> err.rates <- data.frame()
+> max.k <- 100
+> for (k in 1:max.k) {
++ knn.fit <- knn(
++ train = train.data,
++ test = test.data,
++ cl = train.labels,
++ k = k
++ )
++ 
++ cat('\n', 'k= ', k, ', train.pct = ', train.pct, '\n', sep = ' ')
++ print(table(test.labels, knn.fit))
++ 
++ this.err <- sum(test.labels != knn.fit) / length(test.labels)
++ err.rates <- rbind(err.rates, this.err)
++ }
+Error in knn(train = train.data, test = test.data, cl = train.labels,  : 
+  no missing values are allowed
+> 
