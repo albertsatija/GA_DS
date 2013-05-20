@@ -1,0 +1,26 @@
+# load required libraries
+library(class)
+library(ggplot2)
+
+	
+
+
+# reads the initial table 
+	german.table <- read.table('/Users/albertsatija/data_science_class_examples/homework_1.txt', sep = "", h=T)
+
+# assign columns names
+	 names(german.table) <- c('checkaccount','duration','credithistory', 'purpose','creditamt', 'savings', 'employmentlength', 'rateofdi', 'sex', 'guarantors', 'residence', 'property','age', 'otherinstallment', 'housing', 'numofcredits', 'jobtype','liable', 'telephone', 'foreign', 'flag1', 'flag2', 'flag3', 'flag4', 'classification')
+
+# create a linear model (RSE of 0.4, R2 of .25)
+	fit <- lm(classification ~ ., data = german.table)
+	summary(fit)
+
+# remove variables that are not significant to enhance my fit but didn't help (RSE of 0.4, R2 of .25)
+	fit1 <- update(fit, .~. -purpose -rateofdi -guarantors -age -foreign -flag1 -flag2 -flag3 -flag4)
+
+# plot against the most significant variables (checkaccount, duration, credithistory, credit amt, number of credits).  Interestingly most variables appeared helpful 
+
+	# for some reason - nothing is showing up.. 
+
+	plot <- lm(classification ~ checkaccount, german.table) 
+
